@@ -13,8 +13,9 @@ const transactionSchema = new mongoose.Schema({
   },
   amount: {
     type: Number,
-    required: [true, 'must provide an amount']
+    required: [true, 'must provide an amount'],
+    min: 0
   }
 }, { timestamps: true });
 
-export const transactionModel = mongoose.model('Transaction', userSchema);
+export const transactionModel = mongoose.model('Transaction', transactionSchema);
